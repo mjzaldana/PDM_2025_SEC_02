@@ -22,8 +22,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.view.WindowCompat
 import com.example.myapplication.notes.NotesApp
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.example.myapplication.uiComponents.FormularioUI
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,11 +33,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Mauricio",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                WindowCompat.setDecorFitsSystemWindows(window, true)
+                setContent {
+                    FormularioUI()
                 }
             }
         }
