@@ -50,6 +50,21 @@ data class Criptomoneda(
     val cambio24h: Double,
 )
 
+@Composable
+fun mainBottomBar(navController: NavController) {
+    BottomAppBar {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
+        ) {
+            TextButton(onClick = { navController.navigate("favoritos") }) { Text("Favoritos") }
+            TextButton(onClick = { navController.navigate("mercado") }) { Text("Mercado") }
+            TextButton(onClick = { navController.navigate("noticias") }) { Text("Noticias") }
+            TextButton(onClick = { navController.navigate("criptomonedas") }) { Text("Criptomonedas") }
+        }
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CryptoApp() {
@@ -70,6 +85,8 @@ fun CryptoApp() {
     //Crea el estado para mostrar notificaciones tipo Snackbar (mensajes emergentes).
     val snackbarHostState = remember { SnackbarHostState() }
 
+    val navController = rememberNavController()
+
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -80,9 +97,9 @@ fun CryptoApp() {
             ) {
                 Text("Menú", style = MaterialTheme.typography.headlineSmall)
                 Spacer(modifier = Modifier.height(16.dp))
-                TextButton(onClick = { /* Lógica de navegación */ }) { Text("Inicio") }
-                TextButton(onClick = { /* Lógica de navegación */ }) { Text("Perfil") }
-                TextButton(onClick = { /* Lógica de navegación */ }) { Text("Ajustes") }
+                TextButton(onClick = { /*  */ }) { Text("Inicio") }
+                TextButton(onClick = { /* */ }) { Text("Perfil") }
+                TextButton(onClick = { /* */ }) { Text("Ajustes") }
             }
         }
     ) {
@@ -104,17 +121,7 @@ fun CryptoApp() {
                     }
                 )
             },
-            bottomBar = {
-                BottomAppBar {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceAround
-                    ) {
-                        TextButton(onClick = { /* Lógica de navegación */ }) { Text("Favoritos") }
-                        TextButton(onClick = { /* Lógica de navegación */ }) { Text("Mercado") }
-                        TextButton(onClick = { /* Lógica de navegación */ }) { Text("Noticias") }
-                    }
-                }
+            bottomBar = { mainBottomBar(navController)
             },
             floatingActionButton = {
                 FloatingActionButton(onClick = {
@@ -128,9 +135,29 @@ fun CryptoApp() {
             },
             snackbarHost = { SnackbarHost(hostState = snackbarHostState) }
         ) { innerPadding ->
-            CryptoList(criptomonedas = criptomonedas, modifier = Modifier.padding(innerPadding))
+            NavHost(navController, startDestination = "favoritos", Modifier.padding(innerPadding)) {
+                composable("favoritos") { FavoritosScreen() }
+                composable("mercado") { MercadoScreen() }
+                composable("noticias") { NoticiasScreen() }
+                composable("criptomonedas") { CryptoList(criptomonedas = criptomonedas, modifier = Modifier.padding(innerPadding)) }
+            }
         }
     }
+}
+
+@Composable
+fun FavoritosScreen() {
+    Text("Pantalla de Favoritos")
+}
+
+@Composable
+fun MercadoScreen() {
+    Text("Pantalla de Mercado")
+}
+
+@Composable
+fun NoticiasScreen() {
+    Text("Pantalla de Noticias")
 }
 
 @Composable

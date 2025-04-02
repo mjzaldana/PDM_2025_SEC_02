@@ -23,7 +23,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
+import com.example.myapplication.LayoutExample3.ProjectScreen
 import com.example.myapplication.ScafoldExample.CryptoApp
+import com.example.myapplication.layoutExample.LayoutExample
 import com.example.myapplication.notes.NotesApp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.uiComponents.FormularioUI
