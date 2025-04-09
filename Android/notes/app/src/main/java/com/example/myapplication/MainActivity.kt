@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 import com.example.myapplication.LayoutExample3.ProjectScreen
+import com.example.myapplication.NavigationExamples.NavigationStackExample
 import com.example.myapplication.ScafoldExample.CryptoApp
 import com.example.myapplication.layoutExample.LayoutExample
 import com.example.myapplication.notes.NotesApp
@@ -38,7 +39,7 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme {
                 WindowCompat.setDecorFitsSystemWindows(window, true)
                 setContent {
-                    CryptoApp()
+                    NavigationStackExample()
                 }
             }
         }
