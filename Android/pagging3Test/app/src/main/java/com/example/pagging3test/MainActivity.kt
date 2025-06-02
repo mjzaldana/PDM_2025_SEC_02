@@ -15,6 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pagging3test.ui.Post.PostListScreen
 import com.example.pagging3test.ui.itemList.ItemListScreen
 import com.example.pagging3test.ui.itemList.ItemListViewModel
 import com.example.pagging3test.ui.theme.Pagging3TestTheme
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MyApp()
+            PostListScreen()
         }
     }
 }

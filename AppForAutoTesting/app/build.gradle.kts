@@ -2,17 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.dagger.hilt.android")
-    kotlin("kapt")
 }
 
-
 android {
-    namespace = "com.example.pagging3test"
+    namespace = "com.example.appforautotesting"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.pagging3test"
+        applicationId = "com.example.appforautotesting"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -43,20 +40,6 @@ android {
 }
 
 dependencies {
-    // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
-
-    implementation("androidx.paging:paging-runtime:3.3.0")
-    implementation("androidx.paging:paging-compose:1.0.0-alpha20")
-
-    // Hilt
-    implementation("com.google.dagger:hilt-android:2.50")
-    kapt("com.google.dagger:hilt-compiler:2.50")
-
-    // Hilt Navigation Compose (para usar hiltViewModel)
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -66,16 +49,18 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-
     testImplementation(libs.junit)
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("org.mockito:mockito-core:5.0.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation(kotlin("test"))
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-}
-
-kapt {
-    correctErrorTypes = true
+    testImplementation(kotlin("test"))
 }
