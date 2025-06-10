@@ -2,16 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
 }
 
 android {
-    namespace = "com.example.appwithfirebase"
+    namespace = "com.example.ml_kit_test"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.appwithfirebase"
+        applicationId = "com.example.ml_kit_test"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -42,13 +40,10 @@ android {
 }
 
 dependencies {
-    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("com.google.firebase:firebase-crashlytics:18.6.1")
-    implementation("com.google.firebase:firebase-analytics-ktx:21.6.2")
-    // Firestore
-    implementation("com.google.firebase:firebase-firestore-ktx:24.10.3")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    implementation("com.google.mlkit:text-recognition:16.0.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("com.google.mlkit:face-detection:16.1.5")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

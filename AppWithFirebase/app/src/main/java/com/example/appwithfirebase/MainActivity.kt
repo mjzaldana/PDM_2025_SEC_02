@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.appwithfirebase.analytics.AnalyticsScreen
 import com.example.appwithfirebase.login.FirebaseAuthExample
+import com.example.appwithfirebase.ui.task.TaskListScreen
 import com.example.appwithfirebase.ui.theme.AppWithFirebaseTheme
 import com.google.firebase.FirebaseApp
 
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppWithFirebaseTheme {
-                AnalyticsScreen()
+                TaskListScreen()
             }
         }
     }
